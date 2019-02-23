@@ -37,7 +37,7 @@ class KBTest(unittest.TestCase):
         """
         solver.solve()
 
-    def runPlayXSteps(self, solver, plays, timeout=5):
+    def runPlayXSteps(self, solver, plays, timeout=500):
         """
         Wrapper function; calls playXSteps(..) with a timeout
 
@@ -54,7 +54,7 @@ class KBTest(unittest.TestCase):
         except TimeoutError:
             raise Exception("Timed out: %s" % inspect.stack()[1][3])
 
-    def runSolve(self, solver, timeout=5):
+    def runSolve(self, solver, timeout=500):
         """
         Wrapper function; calls solve(..) with a timeout
 
@@ -147,7 +147,7 @@ class KBTest(unittest.TestCase):
         self.assertFalse(th.isWon())
 
         solver = SolverBFS(th, ((),(),(1,2,3)))
-        self.runSolve(solver,)
+        self.runSolve(solver)
 
     def test06_GM_8Puzzle(self):
         p8 = Puzzle8Game()
@@ -165,7 +165,6 @@ class KBTest(unittest.TestCase):
         self.assertEqual(p8.getGameState(), ((5,-1,4), (6,1,8), (7,3,2)))
         p8.reverseMove(movables[0])
         self.assertEqual(p8.getGameState(), ((5,4,-1),(6,1,8),(7,3,2)))
-
 
     def test07_DFS_8Puzzle(self):
         p8 = Puzzle8Game()
