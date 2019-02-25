@@ -4,7 +4,6 @@ from multiprocessing.context import TimeoutError
 from student_code_game_masters import *
 from student_code_uninformed_solvers import *
 
-
 class KBTest(unittest.TestCase):
 
     def setUp(self):
